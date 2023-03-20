@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-servers',
@@ -10,6 +11,7 @@ export class ServersComponent {
   allowNewServer: boolean = false;
   serverCreationStatus: string = 'No server was created!';
   serverName = '';
+  serverCreated: boolean = false;
 
   constructor() {
     setTimeout(() => {
@@ -19,8 +21,10 @@ export class ServersComponent {
 
   ngOnInit() {}
 
-  onCreateServer() {
-    this.serverCreationStatus = 'Server was created!';
+  onCreateServer() { 
+    this.serverCreated = true
+    this.serverCreationStatus =
+      'Server was created! Server Name is ' + this.serverName;
   }
 
   onUpdateServerName(event: Event) {
